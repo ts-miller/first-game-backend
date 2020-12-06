@@ -5,3 +5,9 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+User.destroy_all
+Level.destroy_all
+
+
+tyler = User.create(name: 'Tyler', password_digest: "password")
+tyler.levels.build(name: 'crazy level', difficulty: 8).save
