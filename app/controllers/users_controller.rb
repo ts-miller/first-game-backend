@@ -15,14 +15,19 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    @user = User.find_by()
-    binding.pry
-    @user = User.new(user_params)
-
-    if @user.save
-      render json: @user, status: :created, location: @user
+    if user_params['name'] != 'Select a User'
+      @user = User.find_or_initialize_by(user_params)
+      if @user.save
+        render json: @user.to_json
+      else
+        render json: @user.errors, status: :unprocessable_entity
+      end
     else
-      render json: @user.errors, status: :unprocessable_entity
+      render json: {
+        status: "error",
+        message: "You need to select a user or create a new one!",
+        code: " "
+    }.to_json
     end
   end
 
@@ -48,6 +53,6 @@ class UsersController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def user_params
-      params.fetch(:user, {})
+      params.require(:user).permit(:name)
     end
 end
