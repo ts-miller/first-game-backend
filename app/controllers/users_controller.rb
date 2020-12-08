@@ -15,19 +15,11 @@ class UsersController < ApplicationController
 
   # POST /users
   def create
-    if user_params['name'] != 'Select a User'
-      @user = User.find_or_initialize_by(user_params)
-      if @user.save
-        render json: @user.to_json
-      else
-        render json: @user.errors, status: :unprocessable_entity
-      end
+    @user = User.find_or_initialize_by(user_params)
+    if @user.save
+      render json: @user.to_json
     else
-      render json: {
-        status: "error",
-        message: "You need to select a user or create a new one!",
-        code: " "
-    }.to_json
+      render json: {errors: @user.errors}, status: :unprocessable_entity
     end
   end
 
