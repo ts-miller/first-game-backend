@@ -10,11 +10,18 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_04_193847) do
+ActiveRecord::Schema.define(version: 2020_12_09_191210) do
+
+  create_table "bricks", force: :cascade do |t|
+    t.integer "level_id", null: false
+    t.integer "x"
+    t.integer "y"
+    t.integer "status"
+    t.index ["level_id"], name: "index_bricks_on_level_id"
+  end
 
   create_table "levels", force: :cascade do |t|
     t.string "name"
-    t.integer "difficulty"
     t.integer "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -28,5 +35,6 @@ ActiveRecord::Schema.define(version: 2020_12_04_193847) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  add_foreign_key "bricks", "levels"
   add_foreign_key "levels", "users"
 end

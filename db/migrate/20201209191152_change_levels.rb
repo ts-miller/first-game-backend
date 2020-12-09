@@ -1,5 +1,7 @@
 class ChangeLevels < ActiveRecord::Migration[6.0]
   def change
-    t.remove :difficulty
+    change_table :levels do |t|
+      t.remove :difficulty, :integer
+    end
   end
 end
