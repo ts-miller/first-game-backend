@@ -15,6 +15,7 @@ class LevelsController < ApplicationController
 
   # POST /levels
   def create
+    binding.pry
     @level = Level.new(level_params)
 
     if @level.save
@@ -46,6 +47,6 @@ class LevelsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def level_params
-      params.require(:level).permit(:user_id)
+      params.require(:level).permit(:name)
     end
 end
