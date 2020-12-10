@@ -15,9 +15,7 @@ class LevelsController < ApplicationController
 
   # POST /levels
   def create
-    binding.pry
     @level = Level.new(level_params)
-
     if @level.save
       render json: @level, status: :created, location: @level
     else
@@ -47,6 +45,6 @@ class LevelsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def level_params
-      params.require(:level).permit(:name)
+      params.require(:level).permit(:name, :user_id)
     end
 end

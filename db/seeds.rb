@@ -14,17 +14,7 @@ tyler.levels.build(name: 'crazy level').save
 
 bricks = [
     {x: 0, y: 0, status: 1},
-    {x: 50, y: 0, status: 1},
-    {x: 100, y: 0, status: 1},
-    {x: 150, y: 0, status: 1},
-    {x: 200, y: 0, status: 1},
-    {x: 250, y: 0, status: 1},
-    {x: 300, y: 0, status: 1},
-    {x: 350, y: 0, status: 1},
-    {x: 400, y: 0, status: 1},
-    {x: 450, y: 0, status: 1},
-    {x: 500, y: 0, status: 1},
-    {x: 550, y: 0, status: 1}
+    {x: 50, y: 0, status: 1}
 ]
 
 bricks.each do |brick|
