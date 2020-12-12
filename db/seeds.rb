@@ -9,7 +9,7 @@ User.destroy_all
 Level.destroy_all
 
 
-tyler = User.create(name: 'Tyler')
+tyler = User.create(name: 'Tyler', high_score: 8300)
 tyler.levels.build(name: 'crazy level').save
 
 bricks = [

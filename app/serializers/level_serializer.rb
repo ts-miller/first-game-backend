@@ -1,7 +1,5 @@
 class LevelSerializer < ActiveModel::Serializer
-  attributes :id, :name, :bricks
-  belongs_to :user
-
+  attributes :id, :name, :bricks, :user
 
   def bricks
     self.object.bricks.map do |brick|
@@ -9,5 +7,10 @@ class LevelSerializer < ActiveModel::Serializer
       y: brick.y,
       status: brick.status}
     end
+  end
+
+  def user
+    {id: self.object.user.id,
+    name: self.object.user.name}
   end
 end
