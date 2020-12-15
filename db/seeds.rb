@@ -9,12 +9,20 @@ User.destroy_all
 Level.destroy_all
 
 
-tyler = User.create(name: 'Tyler', high_score: 8300)
+tyler = User.create(name: 'Tyler', high_score: 5)
 tyler.levels.build(name: 'crazy level').save
 
 bricks = [
     {x: 0, y: 0, status: 1},
-    {x: 50, y: 0, status: 1}
+    {x: 50, y: 0, status: 1},
+    {x: 100, y:0, status: 1},
+    {x: 150, y:0, status: 1},
+    {x: 200, y:0, status: 1},
+    {x: 250, y:0, status: 2},
+    {x: 300, y:0, status: 2},
+    {x: 350, y:0, status: 2},
+    {x: 400, y:0, status: 2},
+    {x: 450, y:0, status: 2},
 ]
 
 bricks.each do |brick|
